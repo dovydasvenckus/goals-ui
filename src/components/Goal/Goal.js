@@ -6,6 +6,7 @@ import GoalItem from "./GoalItem";
 const Goal = ({ name, data }) => {
   return (
     <div className="container">
+      <hr />
       <h1 className="title has-text-centered">{name}</h1>
       <ProgressBar
         completedPercentage={
