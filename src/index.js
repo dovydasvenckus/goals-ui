@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styles from "bulma";
-import GoalsList from "./containers/GoalsList/GoalsList";
+import GoalsPage from "./containers/GoalPage/GoalPage";
 
-ReactDOM.render(<GoalsList />, document.getElementById("appContainer"));
+ReactDOM.render(<GoalsPage />, document.getElementById("appContainer"));

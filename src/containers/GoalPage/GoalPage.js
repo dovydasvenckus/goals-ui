@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Goal from "../../components/Goal/Goal";
 import goalsApi from "../../api/goalsApi";
+import GoalsList from "../../components/GoalsList/GoalsList";
 
-class GoalsList extends Component {
+class GoalsPage extends Component {
   state = {
     goals: []
   };
@@ -15,12 +15,10 @@ class GoalsList extends Component {
   render = () => {
     return (
       <div className="container">
-        {this.state.goals.map((goal, index) => (
-          <Goal key={index} name={goal.name} data={goal.data} />
-        ))}
+        <GoalsList goals={this.state.goals} />
       </div>
     );
   };
 }
 
-export default GoalsList;
+export default GoalsPage;
