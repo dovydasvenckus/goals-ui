@@ -1,21 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import GoalItem from "./GoalItem";
 
 const Goal = ({ name, data }) => {
-  console.log(data);
-  console.log((data.completedItems.length / data.itemCountToComplete) * 100);
   return (
     <div className="container">
-      <h1 className="title">{name}</h1>
+      <h1 className="title has-text-centered">{name}</h1>
       <ProgressBar
-        completedPercentage={(
-          (data.completedItems.length / data.itemCountToComplete) *
-          100
-        ).toString()}
+        completedPercentage={
+          (data.completedItems.length / data.itemCountToComplete) * 100
+        }
       />
+      <ol>{mapGoalItems(data.completedItems)}</ol>
     </div>
   );
+};
+
+const mapGoalItems = items => {
+  return items.map((item, index) => (
+    <GoalItem key={index} title={item.title} date={item.date} />
+  ));
 };
 
 Goal.protoTypes = {
