@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Goals from "./components/Goals/Goals";
+import styles from "bulma";
+import GoalsList from "./containers/GoalsList/GoalsList";
 
-ReactDOM.render(<Goals />, document.getElementById("appContainer"));
+ReactDOM.render(<GoalsList />, document.getElementById("appContainer"));

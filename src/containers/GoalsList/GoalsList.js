@@ -16,7 +16,7 @@ class GoalsList extends Component {
     return (
       <div className="container">
         {this.state.goals.map((goal, index) => (
-          <Goal key={index} name={goal.name} />
+          <Goal key={index} name={goal.name} data={goal.data} />
         ))}
       </div>
     );
