@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import GoalItem from "./GoalItem";
+import Hideable from "../Hideable/Hideable";
 
 const Goal = ({ name, data }) => {
   return (
@@ -13,7 +14,9 @@ const Goal = ({ name, data }) => {
           (data.completedItems.length / data.itemCountToComplete) * 100
         }
       />
-      <ol>{mapGoalItems(data.completedItems)}</ol>
+      <Hideable isHidden={true}>
+        <ol>{mapGoalItems(data.completedItems)}</ol>
+      </Hideable>
     </div>
   );
 };
