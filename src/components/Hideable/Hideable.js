@@ -11,7 +11,7 @@ class Hideable extends Component {
   render = () => {
     return (
       <div className="container">
-        <button class="button" onClick={() => this.toggleButton()}>
+        <button className="button" onClick={() => this.toggleButton()}>
           {this.resolveButtonLabel()}
         </button>
         <div style={{ visibility: this.resolveVisibility() }}>

@@ -14,6 +14,7 @@ const Goal = ({ name, data }) => {
           (data.completedItems.length / data.itemCountToComplete) * 100
         }
       />
+      <div className="has-text-centered is-size-4">{`${data.completedItems.length}/${data.itemCountToComplete}`}</div>
       <Hideable isHidden={true}>
         <ol>{mapGoalItems(data.completedItems)}</ol>
       </Hideable>
