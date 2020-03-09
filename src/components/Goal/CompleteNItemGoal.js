@@ -21,4 +21,9 @@ const renderBarLabel = data => {
   return `${data.entries.length}/${data.itemCountToComplete}`;
 };
 
+CompleteNItemsGoal.protoTypes = {
+  name: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired
+};
+
 export default CompleteNItemsGoal;

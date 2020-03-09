@@ -11,7 +11,7 @@ const GoalItem = ({ date, title }) => {
 
 GoalItem.propTypes = {
   date: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default GoalItem;
