@@ -11,12 +11,12 @@ const Goal = ({ name, data }) => {
       <h1 className="title has-text-centered">{name}</h1>
       <ProgressBar
         completedPercentage={
-          (data.completedItems.length / data.itemCountToComplete) * 100
+          (data.entries.length / data.itemCountToComplete) * 100
         }
       />
-      <div className="has-text-centered is-size-4">{`${data.completedItems.length}/${data.itemCountToComplete}`}</div>
+      <div className="has-text-centered is-size-4">{`${data.entries.length}/${data.itemCountToComplete}`}</div>
       <Hideable isHidden={true}>
-        <ol>{mapGoalItems(data.completedItems)}</ol>
+        <ol>{mapGoalItems(data.entries)}</ol>
       </Hideable>
     </div>
   );
@@ -24,7 +24,7 @@ const Goal = ({ name, data }) => {
 
 const mapGoalItems = items => {
   return items.map((item, index) => (
-    <GoalItem key={index} title={item.title} date={item.date} />
+    <GoalItem key={index} title={item.value} date={item.date} />
   ));
 };
 
