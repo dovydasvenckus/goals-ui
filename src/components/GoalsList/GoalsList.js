@@ -1,15 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Goal from "../Goal/Goal";
+import CompleteNItemsGoal from "../Goal/CompleteNItemGoal";
 
 const GoalsList = ({ goals }) => {
   return (
     <div className="container">
-      {goals.map((goal, index) => (
-        <Goal key={index} name={goal.name} data={goal.data} />
-      ))}
+      {goals.map((goal, index) => renderGoal(goal, index))}
     </div>
   );
+};
+
+const renderGoal = (goal, index) => {
+  const { data, type, name } = goal;
+  if (type === "COMPLETE_N_ITEMS") {
+    return <CompleteNItemsGoal key={index} name={name} data={data} />;
+  }
+
+  return null;
 };
 
 GoalsList.propTypes = {

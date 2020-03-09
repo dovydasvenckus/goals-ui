@@ -4,17 +4,13 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import GoalItem from "./GoalItem";
 import Hideable from "../Hideable/Hideable";
 
-const Goal = ({ name, data }) => {
+const Goal = ({ name, data, percentage, barLabel }) => {
   return (
     <div className="container">
       <hr />
       <h1 className="title has-text-centered">{name}</h1>
-      <ProgressBar
-        completedPercentage={
-          (data.entries.length / data.itemCountToComplete) * 100
-        }
-      />
-      <div className="has-text-centered is-size-4">{`${data.entries.length}/${data.itemCountToComplete}`}</div>
+      <ProgressBar completedPercentage={percentage} />
+      <div className="has-text-centered is-size-4">{barLabel}</div>
       <Hideable isHidden={true}>
         <ol>{mapGoalItems(data.entries)}</ol>
       </Hideable>
