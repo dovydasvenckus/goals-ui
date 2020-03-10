@@ -14,7 +14,7 @@ class Hideable extends Component {
         <button className="button" onClick={() => this.toggleButton()}>
           {this.resolveButtonLabel()}
         </button>
-        <div style={{ visibility: this.resolveVisibility() }}>
+        <div style={{ display: this.resolveVisibility() }}>
           {this.props.children}
         </div>
       </div>
@@ -24,7 +24,7 @@ class Hideable extends Component {
   resolveButtonLabel = () =>
     this.state.isHidden ? "Show content" : "Hide content";
 
-  resolveVisibility = () => (this.state.isHidden ? "hidden" : "visible");
+  resolveVisibility = () => (this.state.isHidden ? "none" : "block");
 
   toggleButton = () => this.setState({ isHidden: !this.state.isHidden });
 }
