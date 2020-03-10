@@ -17,22 +17,21 @@ const calculatePercentage = data => {
   const { entries, from, to } = data;
   const lastItem = getLastItem(entries);
 
-  if (data.from > data.to) {
-    const totalProgress = from - to;
-    const leftProgress = lastItem.value - to;
-    const doneProgress = totalProgress - leftProgress;
-    return ((100 / totalProgress) * doneProgress).toFixed(0);
-  }
-
-  const totalProgress = to - from;
-  const leftProgress = to - lastItem.value;
+  const totalProgress = Math.abs(to - from);
+  const leftProgress = Math.abs(to - lastItem.value);
   const doneProgress = totalProgress - leftProgress;
 
   return ((100 / totalProgress) * doneProgress).toFixed(0);
 };
 
 const renderBarLabel = data => {
-  return `${calculatePercentage(data)}%`;
+  const { from, to, entries } = data;
+  const lastItem = getLastItem(entries);
+  const totalProgress = Math.abs(to - from);
+  const leftProgress = Math.abs(to - lastItem.value);
+  const doneProgress = totalProgress - leftProgress;
+
+  return `${doneProgress.toFixed(2)}/${totalProgress.toFixed(2)}`;
 };
 
 const getLastItem = entries => {
