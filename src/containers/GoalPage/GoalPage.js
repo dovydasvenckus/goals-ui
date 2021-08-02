@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import React, { Component } from "react";
 import goalsApi from "../../api/goalsApi";
 import GoalsList from "../../components/GoalsList/GoalsList";
@@ -7,10 +8,13 @@ class GoalsPage extends Component {
     title: "Goals",
     goals: []
   };
-  static propTypes = {};
+  static propTypes = {
+    year: propTypes.number.isRequired
+  };
 
   componentDidMount = () => {
-    goalsApi.getGoals(new Date().getFullYear()).then(response => this.setState({ ...response.data }));
+    const { year } = this.props;
+    goalsApi.getGoals(year).then(response => this.setState({ ...response.data }));
   };
 
   componentDidUpdate = () => {
