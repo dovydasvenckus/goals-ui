@@ -10,7 +10,7 @@ class GoalsPage extends Component {
   static propTypes = {};
 
   componentDidMount = () => {
-    goalsApi.getGoals().then(response => this.setState({ ...response.data }));
+    goalsApi.getGoals(new Date().getFullYear()).then(response => this.setState({ ...response.data }));
   };
 
   componentDidUpdate = () => {

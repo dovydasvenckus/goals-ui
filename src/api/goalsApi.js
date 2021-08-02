@@ -1,5 +1,5 @@
 import axios from "axios";
 
-const getGoals = () => axios.get(process.env.API_URL);
+const getGoals = (year) => axios.get(`${process.env.BASE_REPO_URL}/${year}.json`);
 
 export default { getGoals };
