@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import styles from "bulma";
 import GoalsPage from "./containers/GoalPage/GoalPage";
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
+  Routes,
   Route,
   useParams
 } from "react-router-dom";
@@ -14,11 +14,11 @@ const GoalPageWithYearWrapper = () => {
   return <GoalsPage year={parseInt(year)}/>
 }
 
-ReactDOM.render(<Router>
-  <Switch>
-    <Route path="/:year" children={<GoalPageWithYearWrapper />} />
-    <Route path="/" children={<GoalsPage year={new Date().getFullYear()} />} />
-  </Switch>
-  </Router>, 
+ReactDOM.render(<BrowserRouter>
+    <Routes>
+      <Route path="/:year" element={<GoalPageWithYearWrapper/>}/>
+      <Route path="/" element={<GoalsPage year={new Date().getFullYear()} />}/>
+    </Routes>
+  </BrowserRouter>, 
   document.getElementById("appContainer")
 );
