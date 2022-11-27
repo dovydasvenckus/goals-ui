@@ -6,20 +6,22 @@ import GoalsList from "../../components/GoalsList/GoalsList";
 class GoalsPage extends Component {
   state = {
     title: "Goals",
-    goals: []
+    goals: [],
   };
   static propTypes = {
-    year: propTypes.number.isRequired
+    year: propTypes.number.isRequired,
   };
 
   componentDidMount = () => {
     const { year } = this.props;
-    goalsApi.getGoals(year).then(response => this.setState({ ...response.data }));
+    goalsApi
+      .getGoals(year)
+      .then((response) => this.setState({ ...response.data }));
   };
 
   componentDidUpdate = () => {
     document.title = this.state.title;
-  }
+  };
 
   render = () => {
     return (
