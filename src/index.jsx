@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import styles from "bulma";
 import GoalsPage from "./containers/GoalPage/GoalPage";
 import {
@@ -14,11 +14,12 @@ const GoalPageWithYearWrapper = () => {
   return <GoalsPage year={parseInt(year)}/>
 }
 
-ReactDOM.render(<BrowserRouter>
+const root = ReactDOM.createRoot(document.getElementById("appContainer"));
+root.render(
+  <BrowserRouter>
     <Routes>
       <Route path="/:year" element={<GoalPageWithYearWrapper/>}/>
       <Route path="/" element={<GoalsPage year={new Date().getFullYear()} />}/>
     </Routes>
-  </BrowserRouter>, 
-  document.getElementById("appContainer")
+  </BrowserRouter>
 );
